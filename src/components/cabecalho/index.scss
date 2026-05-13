@@ -1,0 +1,39 @@
+:root {
+    --preto: #000000;
+    --branco: #ffffff;
+
+    --dark-mode-background: #202c37;
+    --dark-mode-elements: #2b3945;
+    --dark-mode-text: #ffffff;
+
+    --light-mode-text: #111517;
+    --light-mode-input: #808080;
+    --light-mode-background: #fcfcfc;
+}
+
+#comp-cabecalho {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 35px;
+    background-color: var(--branco);
+    box-shadow: 0 1px 8px var(--light-mode-input);
+
+    .change-mode {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        i {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    #comp-cabecalho {
+        padding: 10px 15px;
+    }
+}

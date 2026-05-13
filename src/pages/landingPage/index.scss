@@ -1,0 +1,66 @@
+:root {
+    --preto: #000000;
+    --branco: #ffffff;
+
+    --dark-mode-background: #202c37;
+    --dark-mode-elements: #2b3945;
+    --dark-mode-text: #ffffff;
+
+    --light-mode-text: #111517;
+    --light-mode-input: #808080;
+    --light-mode-background: #fcfcfc;
+}
+
+#landing-page {
+    background-color: var(--light-mode-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .pesquisa {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 30px 65px;
+
+        .barra {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--branco);
+            padding: 5px 10px;
+            width: 350px;
+            box-shadow: 0 1px 5px var(--light-mode-input);
+
+            .barra-icone {
+                font-size: 20px;
+                color: var(--light-mode-input);
+            }
+
+            input {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                padding: 5px;
+            }
+        }
+
+        .filtro {
+            select {
+                padding: 10px 5px;
+                font-size: 15px;
+                border-radius: 5px;
+                outline: none;
+            }
+        }
+    }
+
+    .paises {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 35px;
+    }
+}
