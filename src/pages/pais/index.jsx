@@ -10,23 +10,23 @@ export default function Pais({ tema, setTema }) {
     const [pais, setPais] = useState(null);
     const [fronteiras, setFronteiras] = useState([])
 
-    async function buscarPais() {
-        const resp = await axios.get(`https://restcountries.com/v3.1/alpha/${codigo}`)
-
-        const paisEncontrado = resp.data[0]
-        setPais(paisEncontrado)
-
-        if (paisEncontrado.borders) {
-            const bordersResp = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${paisEncontrado.borders.join(',')}`)
-            setFronteiras(bordersResp.data)
-        } else {
-            setFronteiras([])
-        }
-    }
-
     useEffect(() => {
+        async function buscarPais() {
+            const resp = await axios.get(`https://restcountries.com/v3.1/alpha/${codigo}`)
+
+            const paisEncontrado = resp.data[0]
+            setPais(paisEncontrado)
+
+            if (paisEncontrado.borders) {
+                const bordersResp = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${paisEncontrado.borders.join(',')}`)
+                setFronteiras(bordersResp.data)
+            } else {
+                setFronteiras([])
+            }
+        }
+
         buscarPais()
-    }, [])
+    }, [codigo])
 
     if (!pais) {
         return <p>Carregando...</p>
@@ -88,9 +88,9 @@ export default function Pais({ tema, setTema }) {
                                 {
                                     fronteiras.length > 0
                                     ? fronteiras.map(fronteira => (
-                                        <button key={fronteira.cca3}>
+                                        <Link to={`/pais/${fronteira.cca3}`} key={fronteira.cca3} className="fronteira">
                                             {fronteira.name.common}
-                                        </button>
+                                        </Link>
                                     ))
                                     : <button>No Border Countries</button>
                                 }

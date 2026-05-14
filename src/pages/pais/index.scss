@@ -77,7 +77,7 @@
                         grid-template-columns: 1fr 1fr 1fr;
                         gap: 8px;
 
-                        button {
+                        .fronteira {
                             padding: 6px;
                             font-size: 16px;
                             color: var(--font);
@@ -85,6 +85,7 @@
                             border: none;
                             border-radius: 5px;
                             box-shadow: 0 1px 4px var(--shadow);
+                            text-decoration: none;
                         }
                     }
                 }
@@ -136,7 +137,7 @@
 
                 .info {
                     margin-left: 10px;
-                    
+
                     .infos {
                         flex-direction: column;
                         gap: 30px;
