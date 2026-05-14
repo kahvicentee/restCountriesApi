@@ -39,19 +39,19 @@ export default function LandingPage({ tema, setTema }) {
         setCountries(resp.data)
     }
 
-    async function buscarPais() {
-        try {
-            const resp = await axios.get(`https://restcountries.com/v3.1/name/${pesquisa}`)
-
-            setCountries(resp.data);
-            setSugestoes(resp.data.slice(0, 5))
-        } catch {
-            setCountries([]);
-            setSugestoes([]);
-        }
-    }
-
     useEffect(() => {
+        async function buscarPais() {
+            try {
+                const resp = await axios.get(`https://restcountries.com/v3.1/name/${pesquisa}`)
+
+                setCountries(resp.data);
+                setSugestoes(resp.data.slice(0, 5))
+            } catch {
+                setCountries([]);
+                setSugestoes([]);
+            }
+        }
+
         if(pesquisa === '') {
             buscarPaises();
             setSugestoes([]);
