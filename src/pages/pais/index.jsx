@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-export default function Pais() {
+export default function Pais({ tema, setTema }) {
     const { codigo } = useParams();
     const [pais, setPais] = useState(null);
 
@@ -25,7 +25,7 @@ export default function Pais() {
 
     return (
         <div id="pais">
-            <Cabecalho />
+            <Cabecalho tema={tema} setTema={setTema}/>
 
             <div className='info-pais'>
                 <Link to='/' className='botao-voltar'>

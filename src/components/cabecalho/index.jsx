@@ -1,8 +1,6 @@
 import './index.scss';
-import { useState } from 'react';
 
-export default function Cabecalho() {
-    const [tema, setTema] = useState(false)
+export default function Cabecalho({ tema, setTema }) {
 
     async function mudarTema() {
         setTema(!tema)

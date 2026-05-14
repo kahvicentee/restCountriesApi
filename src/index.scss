@@ -1,6 +1,23 @@
+:root {
+  --background: #fcfcfc;
+  --input: #ffffff;
+  --cards: #ffffff;
+  --font: #000000;
+  --shadow: #808080;
+}
+
+body.dark {
+  --background: #202c37;
+  --input: #2b3945;
+  --cards: #2b3945;
+  --font: #ffffff;
+  --shadow: #000000;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
+  transition: .5s;
 }

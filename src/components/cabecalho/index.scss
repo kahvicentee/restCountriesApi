@@ -1,24 +1,12 @@
-:root {
-    --preto: #000000;
-    --branco: #ffffff;
-
-    --dark-mode-background: #202c37;
-    --dark-mode-elements: #2b3945;
-    --dark-mode-text: #ffffff;
-
-    --light-mode-text: #111517;
-    --light-mode-input: #808080;
-    --light-mode-background: #fcfcfc;
-}
-
 #comp-cabecalho {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 35px;
-    background-color: var(--branco);
-    box-shadow: 0 1px 8px var(--light-mode-input);
+    background-color: var(--background);
+    color: var(--font);
+    box-shadow: 0 1px 8px var(--shadow);
 
     h1 {
         font-size: 25px;

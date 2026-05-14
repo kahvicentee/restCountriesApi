@@ -1,9 +1,11 @@
 #pais {
     .info-pais {
+        min-height: calc(100vh - 70px);
         padding: 20px 10px;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
+        background-color: var(--background);
 
         .botao-voltar {
             display: flex;
@@ -11,11 +13,11 @@
             justify-content: center;
             font-size: 20px;
             gap: 15px;
-            background-color: var(--branco);
-            color: var(--preto);
+            background-color: var(--background);
+            color: var(--font);
             padding: 10px;
             margin: 25px;
-            box-shadow: 0 1px 3px var(--preto);
+            box-shadow: 0 1px 3px var(--shadow);
             border-radius: 10px;
             width: 120px;
             cursor: pointer;
@@ -30,7 +32,8 @@
 
             .flag {
                 img {
-                    width: 500px;
+                    width: 450px;
+                    box-shadow: 0 1px 5px var(--shadow);
                 }
             }
 

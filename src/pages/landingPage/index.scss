@@ -1,18 +1,18 @@
+/*
 :root {
     --preto: #000000;
     --branco: #ffffff;
-
     --dark-mode-background: #202c37;
     --dark-mode-elements: #2b3945;
     --dark-mode-text: #ffffff;
-
     --light-mode-text: #111517;
     --light-mode-input: #808080;
     --light-mode-background: #fcfcfc;
 }
+*/
 
 #landing-page {
-    background-color: var(--light-mode-background);
+    background-color: var(--background);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,14 +29,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background-color: var(--branco);
+            background-color: var(--input);
             padding: 5px 10px;
             width: 350px;
-            box-shadow: 0 1px 5px var(--light-mode-input);
+            box-shadow: 0 1px 5px var(--shadow);
 
             .barra-icone {
                 font-size: 20px;
-                color: var(--light-mode-input);
+                color: var(--font);
             }
 
             input {

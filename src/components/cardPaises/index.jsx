@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function CardPaises(props) {
     return (
         <div id="comp-card-paises">
-            <Link to={`/pais/${props.codigo}`}>
+            <Link className='comp-card-paises' to={`/pais/${props.codigo}`}>
                 <img src={props.flag} alt="" />
 
                 <div className="texto">

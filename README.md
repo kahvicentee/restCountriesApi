@@ -6,7 +6,7 @@
 🚀 Challenge by [Frontend Mentor](https://www.frontendmentor.io?ref=challenge) <br>
 👩🏻‍💻 Coded by [Karina Vicente](https://github.com/kahvicentee) <br>
 🌐 Here you can see this [Project]() <br>
-📅 Completed on 
+📅 Completed on May 14th 2026
 
 ## 🔧 Built with
 - ReactJS

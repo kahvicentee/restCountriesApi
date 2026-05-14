@@ -4,7 +4,7 @@ import CardPaises from '../../components/cardPaises';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 
-export default function LandingPage() {
+export default function LandingPage({ tema, setTema }) {
     const [countries, setCountries] = useState([])
     const [pesquisa, setPesquisa] = useState('')
     const [regiao, setRegiao] = useState('')
@@ -39,7 +39,7 @@ export default function LandingPage() {
     
     return (
         <div id="landing-page">
-            <Cabecalho />
+            <Cabecalho tema={tema} setTema={setTema} />
 
             <div className="pesquisa">
                 <div className="barra">
