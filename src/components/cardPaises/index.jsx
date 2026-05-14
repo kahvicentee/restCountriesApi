@@ -9,9 +9,9 @@ export default function CardPaises(props) {
 
                 <div className="texto">
                     <h2>{props.country}</h2>
-                    <p>Population: {props.population}</p>
-                    <p>Region: {props.region}</p>
-                    <p>Capital: {props.capital}</p>
+                    <p>Population: <span>{props.population}</span></p>
+                    <p>Region: <span>{props.region}</span></p>
+                    <p>Capital: <span>{props.capital}</span></p>
                 </div>
             </Link>
         </div>

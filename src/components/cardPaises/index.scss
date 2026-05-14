@@ -27,7 +27,38 @@
             
             p {
                 font-size: 18px;
+                font-weight: 600;
+
+                span {
+                    font-weight: 500;
+                }
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #comp-card-paises {
+        .comp-card-paises {
+            width: 350px;
+            height: 400px;
+
+            img {
+                max-height: 245px;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    #comp-card-paises {
+        .comp-card-paises {
+            width: 330px;
+            height: 380px;
+        }
+        
+        img {
+            max-height: 225px;
         }
     }
 }

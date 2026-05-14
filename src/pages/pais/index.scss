@@ -4,8 +4,9 @@
         padding: 20px 10px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         background-color: var(--background);
+        color: var(--font);
 
         .botao-voltar {
             display: flex;
@@ -58,6 +59,102 @@
 
                         span {
                             font-weight: 500;
+                        }
+                    }
+                }
+
+                .border-countries {
+                    display: flex;
+                    gap: 10px;
+                    
+                    p {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+
+                    .fronteiras {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        gap: 8px;
+
+                        button {
+                            padding: 6px;
+                            font-size: 16px;
+                            color: var(--font);
+                            background-color: var(--cards);
+                            border: none;
+                            border-radius: 5px;
+                            box-shadow: 0 1px 4px var(--shadow);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    #pais {
+        .info-pais {
+            gap: 5px;
+
+            .botao-voltar {
+                margin: 15px;
+            }
+
+            .pais {
+                flex-direction: column;
+                gap: 15px;
+
+                .flag {
+                    img {
+                        width: 400px;
+                    }
+                }
+
+                .info {
+                    .infos {
+                        gap: 65px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #pais {
+        .info-pais {
+            gap: 20px;
+
+            .pais {
+                .flag {
+                    img {
+                        width: 400px;
+                    }
+                }
+
+                .info {
+                    margin-left: 10px;
+                    
+                    .infos {
+                        flex-direction: column;
+                        gap: 30px;
+
+                        .info-1, .info-2 {
+                            p {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .border-countries {
+                        p {
+                            font-size: 18px;
+                        }
+
+                        .fronteiras {
+                            grid-template-columns: 1fr 1fr;
                         }
                     }
                 }

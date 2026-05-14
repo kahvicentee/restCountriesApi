@@ -8,11 +8,20 @@ import { Link } from 'react-router-dom';
 export default function Pais({ tema, setTema }) {
     const { codigo } = useParams();
     const [pais, setPais] = useState(null);
+    const [fronteiras, setFronteiras] = useState([])
 
     async function buscarPais() {
         const resp = await axios.get(`https://restcountries.com/v3.1/alpha/${codigo}`)
 
-        setPais(resp.data[0])
+        const paisEncontrado = resp.data[0]
+        setPais(paisEncontrado)
+
+        if (paisEncontrado.borders) {
+            const bordersResp = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${paisEncontrado.borders.join(',')}`)
+            setFronteiras(bordersResp.data)
+        } else {
+            setFronteiras([])
+        }
     }
 
     useEffect(() => {
@@ -74,6 +83,18 @@ export default function Pais({ tema, setTema }) {
 
                         <div className='border-countries'>
                             <p>Border Countries: </p>
+
+                            <div className="fronteiras">
+                                {
+                                    fronteiras.length > 0
+                                    ? fronteiras.map(fronteira => (
+                                        <button key={fronteira.cca3}>
+                                            {fronteira.name.common}
+                                        </button>
+                                    ))
+                                    : <button>No Border Countries</button>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

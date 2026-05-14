@@ -1,22 +1,10 @@
-/*
-:root {
-    --preto: #000000;
-    --branco: #ffffff;
-    --dark-mode-background: #202c37;
-    --dark-mode-elements: #2b3945;
-    --dark-mode-text: #ffffff;
-    --light-mode-text: #111517;
-    --light-mode-input: #808080;
-    --light-mode-background: #fcfcfc;
-}
-*/
-
 #landing-page {
     background-color: var(--background);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 
     .pesquisa {
         display: flex;
@@ -26,6 +14,7 @@
         padding: 30px 65px;
 
         .barra {
+            position: relative;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -45,6 +34,28 @@
                 outline: none;
                 font-size: 15px;
                 padding: 5px;
+                color: var(--font);
+            }
+
+            .sugestoes {
+                position: absolute;
+                top: 45px;
+                left: 0px;
+                width: 350px;
+                background-color: var(--background);
+                box-shadow: 0 1px 5px var(--shadow);
+
+                .sugestao {
+                    padding: 5px;
+                    margin: 5px;
+                    transition: 0.2s;
+                    color: var(--font);
+                    cursor: pointer;
+                }
+
+                .sugestao:hover {
+                    background-color: var(--shadow);
+                }
             }
         }
 
@@ -54,6 +65,8 @@
                 font-size: 15px;
                 border-radius: 5px;
                 outline: none;
+                background-color: var(--background);
+                color: var(--font);
             }
         }
     }
@@ -62,6 +75,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 35px;
+    }
+}
+
+@media (max-width: 1225px) {
+    #landing-page {
+        .paises {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }
 
@@ -75,8 +96,45 @@
 
 @media (max-width: 768px) {
     #landing-page {
+        .pesquisa {
+            flex-direction: column;
+            gap: 20px;
+
+            .barra {
+                width: 360px;
+
+                .sugestoes {
+                    width: 360px;
+                }
+            }
+
+            .filtro {
+                select {
+                    width: 200px;
+                }
+            }
+        }
+
         .paises {
-            grid-template-columns: 1fr;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    #landing-page {
+        .pesquisa {
+            .barra {
+                width: 325px;
+
+                .sugestoes {
+                    width: 325px;
+                }
+            }
         }
     }
 }

@@ -11,7 +11,11 @@
 ## 🔧 Built with
 - ReactJS
 - Sass
-- [REST Countries API](https://restcountries.com)
+- [REST Countries API](https://restcountries.com) integration
 
 ## ⚙️ Features
-
+- Real-time display of data such as population, capital, and languages; <br>
+- Dynamic search by country name; <br>
+- Region-based filtering; <br>
+- Responsive and modern interface built with React; <br>
+- Theme switching.

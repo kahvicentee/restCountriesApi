@@ -7,16 +7,22 @@ import { useEffect, useState } from 'react'
 export default function LandingPage({ tema, setTema }) {
     const [countries, setCountries] = useState([])
     const [pesquisa, setPesquisa] = useState('')
+    const [sugestoes, setSugestoes] = useState([])
     const [regiao, setRegiao] = useState('')
 
     async function buscarPaises() {
-        const resp = await axios.get('https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3')
+        const paises = [
+            'usa',
+            'can',
+            'fra',
+            'ita',
+            'bra',
+            'kor',
+            'chn',
+            'jpn'
+        ];
 
-        setCountries(resp.data)
-    }
-
-    async function buscarPais() {
-        const resp = await axios.get(`https://restcountries.com/v3.1/name/${pesquisa}`)
+        const resp = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${paises.join(',')}`);
 
         setCountries(resp.data)
     }
@@ -33,9 +39,31 @@ export default function LandingPage({ tema, setTema }) {
         setCountries(resp.data)
     }
 
+    async function buscarPais() {
+        try {
+            const resp = await axios.get(`https://restcountries.com/v3.1/name/${pesquisa}`)
+
+            setCountries(resp.data);
+            setSugestoes(resp.data.slice(0, 5))
+        } catch {
+            setCountries([]);
+            setSugestoes([]);
+        }
+    }
+
     useEffect(() => {
-        buscarPaises()
-    }, [])
+        if(pesquisa === '') {
+            buscarPaises();
+            setSugestoes([]);
+            return
+        }
+
+        const delay = setTimeout(() => {
+            buscarPais()
+        }, 500)
+
+        return () => clearTimeout(delay)
+    }, [pesquisa])
     
     return (
         <div id="landing-page">
@@ -43,8 +71,30 @@ export default function LandingPage({ tema, setTema }) {
 
             <div className="pesquisa">
                 <div className="barra">
-                    <i class="fa-solid fa-magnifying-glass barra-icone"></i>
+                    <i className="fa-solid fa-magnifying-glass barra-icone"></i>
                     <input type="text" value={pesquisa} onChange={a => setPesquisa(a.target.value)} placeholder='Search for a country...'/>
+
+                    {
+                        sugestoes.length > 0 && (
+                            <div className='sugestoes'>
+                                { 
+                                    sugestoes.map(sugestao => (
+                                        <div
+                                            className='sugestao'
+                                            key={sugestao.cca3}
+                                            onClick={() => {
+                                                setPesquisa(sugestao.name.common);
+                                                setCountries([sugestao])
+                                                setSugestoes([])
+                                            }}
+                                        >
+                                            {sugestao.name.common}
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        )
+                    }
                 </div>
 
                 <div className="filtro">
