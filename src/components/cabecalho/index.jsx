@@ -13,7 +13,7 @@ export default function Cabecalho() {
             <h1>Where in the world?</h1>
 
             <div className='change-mode' onClick={mudarTema}>
-                <i className={ tema ? "fa-solid fa-moon" : "fa-regular fa-moon"}></i>
+                <i className={tema ? "fa-solid fa-moon" : "fa-regular fa-moon"}></i>
                 <p>Dark Mode</p>
             </div>
         </div>

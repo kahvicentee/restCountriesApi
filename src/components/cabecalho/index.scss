@@ -16,19 +16,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 35px;
+    padding: 20px 35px;
     background-color: var(--branco);
     box-shadow: 0 1px 8px var(--light-mode-input);
 
+    h1 {
+        font-size: 25px;
+    }
+
     .change-mode {
+        cursor: pointer;
         display: flex;
         align-items: center;
         gap: 10px;
-        cursor: pointer;
 
         i {
             font-size: 20px;
         }
+    }
+}
+
+@media (max-width: 768px) {
+    #comp-cabecalho {
+        padding: 15px 25px;
     }
 }
 

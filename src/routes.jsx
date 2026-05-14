@@ -7,7 +7,7 @@ export default function Navigation() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/pais" element={<Pais />} />
+                <Route path="/pais/:codigo" element={<Pais />} />
             </Routes>
         </BrowserRouter>
     )

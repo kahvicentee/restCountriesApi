@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 export default function LandingPage() {
     const [countries, setCountries] = useState([])
     const [pesquisa, setPesquisa] = useState('')
+    const [regiao, setRegiao] = useState('')
 
     async function buscarPaises() {
         const resp = await axios.get('https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3')
@@ -15,11 +16,21 @@ export default function LandingPage() {
     }
 
     async function buscarPais() {
+        const resp = await axios.get(`https://restcountries.com/v3.1/name/${pesquisa}`)
 
+        setCountries(resp.data)
     }
 
-    async function buscaPorRegiao() {
+    async function buscaPorRegiao(regiaoSelecionada) {
+        setRegiao(regiaoSelecionada)
 
+        if (regiaoSelecionada === '') {
+            buscarPaises()
+            return
+        }
+
+        const resp = await axios.get(`https://restcountries.com/v3.1/region/${regiaoSelecionada}`)
+        setCountries(resp.data)
     }
 
     useEffect(() => {
@@ -37,10 +48,10 @@ export default function LandingPage() {
                 </div>
 
                 <div className="filtro">
-                    <select name="" id="">
+                    <select value={regiao} onChange={e => buscaPorRegiao(e.target.value)}>
                         <option value="">Filter by Region</option>
                         <option value="Africa">Africa</option>
-                        <option value="America">America</option>
+                        <option value="Americas">Americas</option>
                         <option value="Asia">Asia</option>
                         <option value="Europe">Europe</option>
                         <option value="Oceania">Oceania</option>
@@ -52,6 +63,7 @@ export default function LandingPage() {
                 {countries.map(country => (
                     <CardPaises 
                         key={country.cca3}
+                        codigo={country.cca3}
                         flag={country.flags.svg}
                         country={country.name.common}
                         population={country.population}
