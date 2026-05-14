@@ -38,7 +38,7 @@ export default function Pais({ tema, setTema }) {
 
             <div className='info-pais'>
                 <Link to='/' className='botao-voltar'>
-                    <i class="fa-solid fa-arrow-left"></i>
+                    <i className="fa-solid fa-arrow-left"></i>
                     <p>Back</p>
                 </Link>
 
